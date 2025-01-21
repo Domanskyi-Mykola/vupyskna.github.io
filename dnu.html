@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детальна інформація про ДНУ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .intro, .rector-info, .section {
+            margin-top: 20px;
+        }
+
+        .intro img, .rector-info img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            color: #007bff;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .rector-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #e9f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .rector-info img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .rector-info div {
+            max-width: 60%;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin: 10px 0 10px 20px;
+            color: #555;
+        }
+
+        .section p, .rector-info p {
+            text-align: justify;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .section img {
+            width: 100%;
+            max-height: 1000px;
+            object-fit: cover;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+
+
+
+
+
+
+
+        .faculty-container h2 {
+            text-align: center;
+            color: #0056b3;
+        }
+
+        .faculty-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .faculty-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .faculty {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .specialties {
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .specialty {
+            display: inline-block;
+            background-color: #e8f4fc;
+            color: #0056b3;
+            margin: 5px 5px 0 0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+
+
+
+
+
+
+
+
+        @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .rector-info {
+            flex-direction: column; /* Перестраиваем в колонку */
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rector-info img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .rector-info div {
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .faculty-container {
+            padding: 15px;
+        }
+
+        .faculty-container ul {
+            padding: 0;
+        }
+
+        .faculty-container h2 {
+            font-size: 18px;
+        }
+
+        .specialty {
+            font-size: 13px;
+            padding: 5px 8px;
+        }
+    }
+
+    /* Адаптация для мобильных устройств (ширина до 480px) */
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 20px;
+        }
+
+        .container {
+            padding: 10px;
+        }
+
+        .rector-info img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .rector-info div {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        ul {
+            margin: 5px 0 5px 15px;
+        }
+
+        .faculty-container ul li {
+            margin-bottom: 15px;
+        }
+
+        .faculty-container h2 {
+            font-size: 16px;
+        }
+
+        .specialty {
+            font-size: 12px;
+            padding: 4px 6px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Дніпровський національний університет імені Олеся Гончара (ДНУ)</h1>
+
+    <div class="intro">
+        <p>
+            Дніпровський національний університет імені Олеся Гончара — один з найстаріших і найбільших вищих навчальних закладів України. Він був заснований у 1918 році, має довгу історію і високий авторитет у сфері освіти та науки. Університет названий на честь видатного українського письменника Олеся Гончара, який зробив значний внесок у розвиток української культури та літератури.
+        </p>
+        
+    </div>
+
+    <div class="rector-info">
+        <img src="Multimedia/Сергій Окотович Іванович.jpg" alt="Ректор">
+        <div>
+            <h2>Ректор університету</h2>
+            <p><span class="highlight">Сергій Оковитий Іванович</span> — ректор Дніпровського національного університету імені Олеся Гончара. Член-кореспондент Національної академії наук України заслужений діяч науки і техніки, доктор хімічних наук, професор.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Основна інформація</h2>
+        <p><span class="highlight">Рік заснування:</span>  20 серпня 1918 рік</p>
+        <p><span class="highlight">Адреса:</span> м. Дніпро, просп. Гагаріна, 72</p>
+        <p><span class="highlight">Тип університету:</span> Національний, державний</p>
+        <p><span class="highlight">Офіційний сайт:</span> <a href="https://www.dnu.dp.ua/" target="_blank">www.dnu.dp.ua</a></p>
+    </div>
+<!--
+    <div class="section">
+        <h2>Факультети та спеціальності</h2>
+        <ul>
+            <li>Факультет української й іноземної філології та мистецтвознавства; Спеціальності: 022 Дизайн, 035 Філологія 014 Середня освіта, 023 Образотворче мистецтво, декоративне мистецтво, реставрація.</li>
+            <li>Факультет суспільних наук і міжнародних відносин; Спеціальності: 034 Культурологія  033 Філософія  054 Соціологія, 281 Публічне управління та адміністрування, 052 Політологія, 291 Міжнародні відносини, суспільні комунікації та регіональні студії.</li>
+            <li>Історичний факультет; Спеціальності: 106 Географія, 032 Історія та археологія, 103 Науки про Землю.</li>
+            <li>Факультет психології та спеціальної освіти; Спнціальності: 016 Спеціальна освіта, 053 Психологія.</li>
+            <li>Факультет прикладної математики та інформаційних технологій; 126 Інформаційні системи та технології, 121 Інженерія програмного забезпечення  124 Системний аналіз.</li>
+            <li>Факультет економіки; Спеціальності: 241 Готельно-ресторанна справа, 051 Економіка 075 Маркетинг, 073 Менеджмент.</li>
+            <li>Факультет систем і засобів масовоїт  комунікації; Спеціальності: 029 Інформаційна, бібліотечна та архівна справа, 061 Журналістика, 029 Інформаційна, бібліотечна та архівна справа. </li>
+            <li>Юридичний факультет; Спеціальності: 081 Право.</li>
+            <li>Хімічний факультет; Спеціальності: 102 Хімія, 161 Хімічні технології та інженерія,  181 Харчові технології.</li>
+            <li>Факультет фізики, електроніки та комп'ютерних систем; Спеціальності: 172 Електронні комунікації та радіотехніка, 122 Комп'ютерні науки 104 Фізика та астрономія 105 Прикладна фізика та наноматеріали, 176 Мікро- та наносистемна техніка, </li>
+            <li>Біолого-екологічний факультет; Спеціальності: 091 Біологія та біохімія, 162 Біотехнології та біоінженерія, 101 Екологія 202 Захист і карантин рослин.</li>
+            <li>Факультет медичних технологій діагностики та реабілітації; Спеціальність: 223 Медсестринство 224 Технології медичної діагностики та лікування, 227 Терапія та  реабілітація, 231 Соціальна робота.</li>
+            <li>Механіко-математичний факультет; Спеціальність: 111 Математика, 144 Теплоенергетика 113 Прикладна математика.</li>
+            <li>Фізико-технічний факультет; Спеціальності: 134 Авіаційна та ракетно-космічна техніка, 174 Автоматизація, комп’ютерно-інтегровані технології та робототехніка, 133 Галузеве машинобудування, 141 Електроенергетика, електротехніка та електромеханіка, 125 Кібербезпека та захист інформації 132 Матеріалознавство 183 Технології захисту навколишнього середовища 131 Прикладна механіка.</li>
+            
+        </ul>
+        <img src="Multimedia/корпус ДНУ.jpg" alt="Головний корпус ДНУ">
+    </div>
+-->
+<div class="faculty-container">
+    <h2>Факультети та спеціальності</h2>
+    <ul>
+        <li>
+            <span class="faculty">Факультет української й іноземної філології та мистецтвознавства</span>
+            <div class="specialties">
+                <span class="specialty">022 Дизайн</span>
+                <span class="specialty">035 Філологія</span>
+                <span class="specialty">014 Середня освіта</span>
+                <span class="specialty">023 Образотворче мистецтво</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Факультет суспільних наук і міжнародних відносин</span>
+            <div class="specialties">
+                <span class="specialty">034 Культурологія</span>
+                <span class="specialty">033 Філософія</span>
+                <span class="specialty">054 Соціологія</span>
+                <span class="specialty">281 Публічне управління</span>
+                <span class="specialty">052 Політологія</span>
+                <span class="specialty">291 Міжнародні відносини</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Історичний факультет</span>
+            <div class="specialties">
+                <span class="specialty">106 Географія</span>
+                <span class="specialty">032 Історія та археологія</span>
+                <span class="specialty">103 Науки про Землю</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Факультет психології та спеціальної освіти</span>
+            <div class="specialties">
+                <span class="specialty">016 Спеціальна освіта</span>
+                <span class="specialty">053 Психологія</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Факультет прикладної математики та інформаційних технологій</span>
+            <div class="specialties">
+                <span class="specialty">126 Інформаційні системи</span>
+                <span class="specialty">121 Інженерія програмного забезпечення</span>
+                <span class="specialty">124 Системний аналіз</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Факультет економіки</span>
+            <div class="specialties">
+                <span class="specialty">241 Готельно-ресторанна справа</span>
+                <span class="specialty">051 Економіка</span>
+                <span class="specialty">075 Маркетинг</span>
+                <span class="specialty">073 Менеджмент</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Факультет систем і засобів масової комунікації</span>
+            <div class="specialties">
+                <span class="specialty">029 Інформаційна, бібліотечна та архівна справа</span>
+                <span class="specialty">061 Журналістика</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Юридичний факультет</span>
+            <div class="specialties">
+                <span class="specialty">081 Право</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Хімічний факультет</span>
+            <div class="specialties">
+                <span class="specialty">102 Хімія</span>
+                <span class="specialty">161 Хімічні технології та інженерія</span>
+                <span class="specialty">181 Харчові технології</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Факультет фізики, електроніки та комп'ютерних систем</span>
+            <div class="specialties">
+                <span class="specialty">172 Електронні комунікації та радіотехніка</span>
+                <span class="specialty">122 Комп'ютерні науки</span>
+                <span class="specialty">104 Фізика та астрономія</span>
+                <span class="specialty">105 Прикладна фізика та наноматеріали</span>
+                <span class="specialty">176 Мікро- та наносистемна техніка</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Біолого-екологічний факультет</span>
+            <div class="specialties">
+                <span class="specialty">091 Біологія та біохімія</span>
+                <span class="specialty">162 Біотехнології та біоінженерія</span>
+                <span class="specialty">101 Екологія</span>
+                <span class="specialty">202 Захист і карантин рослин</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Факультет медичних технологій діагностики та реабілітації</span>
+            <div class="specialties">
+                <span class="specialty">223 Медсестринство</span>
+                <span class="specialty">224 Технології медичної діагностики та лікування</span>
+                <span class="specialty">227 Терапія та реабілітація</span>
+                <span class="specialty">231 Соціальна робота</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Механіко-математичний факультет</span>
+            <div class="specialties">
+                <span class="specialty">111 Математика</span>
+                <span class="specialty">144 Теплоенергетика</span>
+                <span class="specialty">113 Прикладна математика</span>
+            </div>
+        </li>
+        <li>
+            <span class="faculty">Фізико-технічний факультет</span>
+            <div class="specialties">
+                <span class="specialty">134 Авіаційна та ракетно-космічна техніка</span>
+                <span class="specialty">174 Автоматизація, комп’ютерно-інтегровані технології та робототехніка</span>
+                <span class="specialty">133 Галузеве машинобудування</span>
+                <span class="specialty">141 Електроенергетика, електротехніка та електромеханіка</span>
+                <span class="specialty">125 Кібербезпека та захист інформації</span>
+                <span class="specialty">132 Матеріалознавство</span>
+                <span class="specialty">183 Технології захисту навколишнього середовища</span>
+                <span class="specialty">131 Прикладна механіка</span>
+            </div>
+        </li>
+    </ul>
+    <div class="section">
+        <h2>Досягнення університету</h2>
+        <p>
+            ДНУ має статус дослідницького університету і є членом багатьох міжнародних освітніх та наукових організацій. Університет неодноразово займав високі місця в національних та міжнародних рейтингах університетів. Випускники ДНУ є затребуваними на ринку праці як в Україні, так і за кордоном, що свідчить про високу якість освіти.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Відомі випускники</h2>
+        <ul>
+            <li><span class="highlight">Олесь Гончар</span> — відомий український письменник.</li>
+            <li><span class="highlight">Юлія Тимошенко</span> — українська політик і колишня прем'єр-міністр України.</li>
+            <li><span class="highlight">Ігор Коломойський</span> — український бізнесмен і меценат.</li>
+            <li><span class="highlight">Володимир Зеленський</span> — президент України.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Міжнародна співпраця та програми обміну</h2>
+        <p>
+            ДНУ активно бере участь у міжнародних освітніх програмах, таких як Erasmus+, Horizon 2020, TEMPUS. Це дає змогу студентам проходити навчання за кордоном, а викладачам — брати участь у міжнародних дослідженнях та конференціях.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Студентське життя</h2>
+        <p>
+            Студенти ДНУ мають активне і різноманітне студентське життя, яке включає участь у культурних, спортивних, наукових заходах. Університет має численні студентські організації, де кожен може реалізувати свої таланти.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+

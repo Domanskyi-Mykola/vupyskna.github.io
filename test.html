@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест: Історія вищої освіти в Дніпрі</title>
+
+    <style>
+        .body1 {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .quiz-container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff8e1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .body1 h1 {
+            text-align: center;
+            color: #d58512;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff0cc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question h3 {
+            margin: 0 0 10px;
+        }
+        .body1 ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f8e9d1;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #f4d9b3;
+        }
+        .correct {
+            background-color: #a8e6a2;
+        }
+        .incorrect {
+            background-color: #f4b4b4;
+            text-decoration: underline;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+            color: #d58512;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #d58512;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b5730e;
+        }
+        
+        /* Styles for modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fff8e1;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal-content h2 {
+            color: #d58512;
+        }
+        .modal-content button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d58512;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .modal-content button:hover {
+            background-color: #b5730e;
+        }
+    </style>
+</head>
+<body>
+    <div class="body1">
+        <h1>Тест: Історія вищої освіти в Дніпрі</h1>
+        <div id="quiz" class="quiz"></div>
+        <button id="checkButton" onclick="checkAnswers()">Перевірити відповіді</button>
+        <div class="result" id="result"></div>
+        <button id="retryButton" style="display: none;" onclick="generateQuiz()">Пройти заново</button>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Увага!</h2>
+            <p>Ви не відповіли на всі запитання. Будь ласка, заповніть усі тести.</p>
+            <button onclick="closeModal()">Закрити</button>
+        </div>
+    </div>
+
+    <script>
+        const questionsPool = [
+        {
+                question: "У якому році був заснований Гірничий інститут у Катеринославі?",
+                options: ["1889", "1899", "1909", "1919"],
+                answer: 1
+            },
+            {
+                question: "Як називається сучасний Гірничий інститут?",
+                options: ["Дніпровський національний університет імені Олеся Гончара", "Національний технічний університет «Дніпровська політехніка»", "Український державний хіміко-технологічний університет", "Дніпровський державний медичний університет"],
+                answer: 1
+            },
+            {
+                question: "У якому році був заснований Катеринославський університет?",
+                options: ["1908", "1913", "1918", "1923"],
+                answer: 2
+            },
+            {
+                question: "Які галузі потребували спеціалістів у радянський період?",
+                options: ["Космічна, машинобудівна, хімічна", "Аграрна, текстильна", "Мистецька, туристична", "Лісова, медійна"],
+                answer: 0
+            },
+            {
+                question: "У якому році виник Дніпровський державний медичний університет?",
+                options: ["1926", "1936", "1946", "1956"],
+                answer: 1
+            },
+            {
+                question: "Що сприяло розвитку аерокосмічного напрямку освіти в Дніпрі?",
+                options: ["Підтримка міжнародних проєктів", "Виникнення Національного центру аерокосмічної освіти", "Розвиток аграрного сектору", "Підготовка фахівців у медицині"],
+                answer: 1
+            },
+            {
+                question: "Яка подія вплинула на трансформацію ВНЗ Дніпра після 1991 року?",
+                options: ["Розпад Радянського Союзу", "Прийняття Конституції України", "Відновлення незалежності Польщі", "Заснування ООН"],
+                answer: 0
+            },
+            {
+                question: "Який університет було засновано у 1993 році?",
+                options: ["Дніпровський державний медичний університет", "Університет митної справи та фінансів", "Національний технічний університет «Дніпровська політехніка»", "Український державний хіміко-технологічний університет"],
+                answer: 1
+            },
+            {
+                question: "Що є головною метою сучасних ВНЗ у Дніпрі?",
+                options: ["Вивчення історії", "Інтеграція в європейський освітній простір", "Розвиток сільського господарства", "Співпраця з азійськими країнами"],
+                answer: 1
+            },
+            {
+                question: "Як ВНЗ міста взаємодіють із місцевими підприємствами?",
+                options: ["Забезпечують практичну підготовку студентів", "Проводять спортивні заходи", "Організовують фестивалі", "Проводять розважальні заходи"],
+                answer: 0
+            },
+            {
+                question: "Коли був відкритий перший факультет Катеринославського університету?",
+                options: ["1905", "1910", "1918", "1921"],
+                answer: 2
+            },
+            {
+                question: "Яка роль Гірничого університету в підготовці фахівців для промисловості?",
+                options: ["Підготовка виключно науковців", "Навчання керівників підприємств", "Освіта для гірничодобувної галузі", "Спеціалізація в аграрному секторі"],
+                answer: 2
+            },
+            {
+                question: "Який навчальний заклад спеціалізується на архітектурі?",
+                options: ["Гірничий університет", "Придніпровська академія будівництва та архітектури", "Медичний університет", "Національний університет «Дніпровська політехніка»"],
+                answer: 1
+            },
+            {
+                question: "Який напрямок є провідним у Дніпровському національному університеті?",
+                options: ["Космічні технології", "Гуманітарні науки", "Аграрна справа", "Архітектура"],
+                answer: 0
+            },
+            {
+                question: "Який заклад був відкритий у 1930 році?",
+                options: ["Технічний університет", "Дніпровський медичний університет", "Академія митної справи", "Гірничий університет"],
+                answer: 0
+            },
+            {
+                question: "Яка кількість студентів була на початку існування Гірничого університету?",
+                options: ["500", "200", "50", "100"],
+                answer: 2
+            },
+            {
+                question: "Хто був першим ректором Гірничого університету?",
+                options: ["Олександр Пол", "Дмитро Менделєєв", "Леонід Лутугін", "Іван Грабовський"],
+                answer: 3
+            },
+            {
+                question: "Який університет має найбільшу кількість факультетів?",
+                options: ["Гірничий університет", "Національний технічний університет", "Дніпровський державний університет", "Медичний університет"],
+                answer: 1
+            },
+            {
+                question: "Коли було відкрито університет митної справи?",
+                options: ["1990", "1993", "1995", "2000"],
+                answer: 1
+            },
+            {
+                question: "Який факультет у Дніпровському національному університеті є найстарішим?",
+                options: ["Фізико-технічний", "Історичний", "Економічний", "Юридичний"],
+                answer: 0
+            },
+            {
+                question: "Коли було засновано Придніпровську академію будівництва та архітектури?",
+                options: ["1930", "1935", "1940", "1945"],
+                answer: 1
+            },
+            {
+                question: "Який університет спеціалізується на підготовці фахівців для металургійної промисловості?",
+                options: ["Гірничий університет", "Хіміко-технологічний університет", "Придніпровська академія будівництва та архітектури", "Університет митної справи"],
+                answer: 1
+            },
+            {
+                question: "Коли Гірничий університет отримав статус національного?",
+                options: ["1990", "1994", "2002", "2010"],
+                answer: 2
+            },
+            {
+                question: "Яка кількість іноземних студентів навчається у Дніпровських ВНЗ?",
+                options: ["До 1000", "1000-2000", "2000-5000", "Понад 5000"],
+                answer: 3
+            },
+            {
+                question: "Який університет співпрацює з Національним космічним агентством України?",
+                options: ["Національний університет «Дніпровська політехніка»", "Дніпровський національний університет", "Гірничий університет", "Університет митної справи"],
+                answer: 1
+            },
+            {
+                question: "Який навчальний заклад надає освіту з біомедичних технологій?",
+                options: ["Дніпровський державний медичний університет", "Придніпровська академія будівництва", "Національний університет «Дніпровська політехніка»", "Хіміко-технологічний університет"],
+                answer: 0
+            },
+            {
+                question: "Коли було засновано Український державний хіміко-технологічний університет?",
+                options: ["1929", "1932", "1935", "1940"],
+                answer: 0
+            }
+           
+        ];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function generateQuiz() {
+            shuffleArray(questionsPool);
+            const quizContainer = document.getElementById("quiz");
+            quizContainer.innerHTML = "";
+            for (let i = 0; i < 10; i++) {
+                const question = questionsPool[i];
+                const questionDiv = document.createElement("div");
+                questionDiv.className = "question";
+                questionDiv.innerHTML = `
+                    <p>${i + 1}. ${question.question}</p>
+                    <ul class="options">
+                        ${question.options.map((option, index) => `<li><input type="radio" name="q${i}" value="${index}"> ${option}</li>`).join("")}
+                    </ul>
+                `;
+                quizContainer.appendChild(questionDiv);
+            }
+            document.getElementById("checkButton").style.display = "block";
+            document.getElementById("retryButton").style.display = "none";
+            document.getElementById("result").textContent = "";
+        }
+
+        function checkAnswers() {
+            let score = 0;
+            let unanswered = false;
+            for (let i = 0; i < 10; i++) {
+                const question = questionsPool[i];
+                const options = document.getElementsByName(`q${i}`);
+                let answered = false;
+
+                options.forEach(option => {
+                    const label = option.parentElement;
+                    label.classList.remove("correct", "incorrect");
+
+                    if (parseInt(option.value) === question.answer) {
+                        label.classList.add("correct");
+                    }
+
+                    if (option.checked) {
+                        answered = true;
+                        if (parseInt(option.value) === question.answer) {
+                            score++;
+                        } else {
+                            label.classList.add("incorrect");
+                        }
+                    }
+                });
+
+                if (!answered) {
+                    unanswered = true;
+                }
+            }
+
+            if (unanswered) {
+                openModal();
+                return;
+            }
+
+            document.getElementById("result").textContent = `Ваша оцінка: ${score} з 10`;
+            document.getElementById("checkButton").style.display = "none";
+            document.getElementById("retryButton").style.display = "block";
+        }
+
+        function openModal() {
+            document.getElementById("modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        generateQuiz();
+        
+
+        function checkAnswers() {
+    let score = 0;
+    let unanswered = false;
+
+    for (let i = 0; i < 10; i++) {
+        const question = questionsPool[i];
+        const options = document.getElementsByName(`q${i}`);
+        let answered = false;
+
+        options.forEach(option => {
+            const label = option.parentElement;
+            label.classList.remove("correct", "incorrect");
+
+            if (option.checked) {
+                answered = true;
+                if (parseInt(option.value) === question.answer) {
+                    score++;
+                }
+            }
+        });
+
+        if (!answered) {
+            unanswered = true;
+        }
+    }
+
+    if (unanswered) {
+        openModal();
+        return;
+    }
+
+    
+    for (let i = 0; i < 10; i++) {
+        const question = questionsPool[i];
+        const options = document.getElementsByName(`q${i}`);
+
+        options.forEach(option => {
+            const label = option.parentElement;
+
+            if (parseInt(option.value) === question.answer) {
+                label.classList.add("correct");
+            }
+
+            if (option.checked && parseInt(option.value) !== question.answer) {
+                label.classList.add("incorrect");
+            }
+        });
+    }
+
+    document.getElementById("result").textContent = `Ваша оцінка: ${score} з 10`;
+    document.getElementById("checkButton").style.display = "none";
+    document.getElementById("retryButton").style.display = "block";
+}
+
+    </script>
+</body>
+</html>

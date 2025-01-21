@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Університет імені Альфреда Нобеля</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro, .rector-info, .section {
+            margin-top: 20px;
+        }
+
+        .intro img, .section img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            color: #007bff;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .rector-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #e9f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .rector-info img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .rector-info div {
+            max-width: 60%;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin: 10px 0 10px 20px;
+            color: #555;
+        }
+
+        .section p, .rector-info p {
+            text-align: justify;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .section img {
+            width: 100%;
+            max-height: 1000px;
+            object-fit: cover;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+
+
+
+
+
+        .faculty-container h2 {
+            text-align: center;
+            color: #0056b3;
+        }
+
+        .faculty-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .faculty-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .faculty {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .specialties {
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .specialty {
+            display: inline-block;
+            background-color: #e8f4fc;
+            color: #0056b3;
+            margin: 5px 5px 0 0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+
+
+
+
+
+        @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .rector-info {
+            flex-direction: column; /* Перестраиваем в колонку */
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rector-info img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .rector-info div {
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .faculty-container {
+            padding: 15px;
+        }
+
+        .faculty-container ul {
+            padding: 0;
+        }
+
+        .faculty-container h2 {
+            font-size: 18px;
+        }
+
+        .specialty {
+            font-size: 13px;
+            padding: 5px 8px;
+        }
+    }
+
+    /* Адаптация для мобильных устройств (ширина до 480px) */
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 20px;
+        }
+
+        .container {
+            padding: 10px;
+        }
+
+        .rector-info img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .rector-info div {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        ul {
+            margin: 5px 0 5px 15px;
+        }
+
+        .faculty-container ul li {
+            margin-bottom: 15px;
+        }
+
+        .faculty-container h2 {
+            font-size: 16px;
+        }
+
+        .specialty {
+            font-size: 12px;
+            padding: 4px 6px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Університет імені Альфреда Нобеля</h1>
+
+    <div class="intro">
+        <p>Університет імені Альфреда Нобеля — один з провідних приватних університетів України, заснований у 1993 році в місті Дніпро. Відомий своєю економічною та гуманітарною спеціалізацією, а також акцентом на міжнародній співпраці. Завдяки програмам подвійного дипломування випускники університету мають можливість будувати кар'єру як в Україні, так і за кордоном.</p>
+        
+    </div>
+
+    <div class="rector-info">
+        <img src="Multimedia/th.jpg" alt="Ректор Університету Альфреда Нобеля">
+        <div>
+            <h2>Ректор університету</h2>
+            <p><span class="highlight">Холод Сергій Борисович</span> — ректор Університету імені Альфреда Нобеля, доктор економічних наук. Кандидат технічних наук зі спеціальності 05.13.22 – Управління проектами та програмами з 2011 року.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Основна інформація</h2>
+        <p><span class="highlight">Рік заснування:</span> 1993</p>
+        <p><span class="highlight">Адреса:</span> м. Дніпро, вул. Січеславська Набережна, 18</p>
+        <p><span class="highlight">Офіційний сайт:</span> <a href="https://duan.edu.ua/" target="_blank">duan.edu.ua</a></p>
+    </div>
+
+    <div class="section">
+        <h2>Факультети та спеціальності</h2>
+        <ul>
+            <li>
+                <span class="faculty">Інжиніринг безпілотних систем</span>
+                <div class="specialties">
+                    <span class="specialty">134 Авіаційна та ракетно-космічна техніка</span>
+                </div>
+            </li>
+            <li>
+                <span class="faculty">Комп'ютерні науки</span>
+                <div class="specialties">
+                    <span class="specialty">122 Комп'ютерні науки</span>
+                </div>
+            </li>
+            <li>
+                <span class="faculty">Маркетинг</span>
+                <div class="specialties">
+                    <span class="specialty">075 Маркетинг</span>
+                </div>
+            </li>
+            <li>
+                <span class="faculty">Електронна комерція</span>
+                <div class="specialties">
+                    <span class="specialty">075 Маркетинг</span>
+                </div>
+            </li>
+            <li>
+                <span class="faculty">Менеджмент</span>
+                <div class="specialties">
+                    <span class="specialty">073 Менеджмент</span>
+                </div>
+            </li>
+            <li>
+                <span class="faculty">Міжнародні економічні відносини</span>
+                <div class="specialties">
+                    <span class="specialty">292 Міжнародні економічні відносини</span>
+                </div>
+            </li>
+            <li>
+                <span class="faculty">Право</span>
+                <div class="specialties">
+                    <span class="specialty">081 Право</span>
+                </div>
+            </li>
+            <li>
+                <span class="faculty">Консультування та корекційно-розвивальна робота</span>
+                <div class="specialties">
+                    <span class="specialty">053 Психологія</span>
+                </div>
+            </li>
+            <li>
+                <span class="faculty">Германські мови та літератури (переклад включно), перша - англійська</span>
+                <div class="specialties">
+                    <span class="specialty">035 Філологія</span>
+                </div>
+            </li>
+        </ul>
+        
+        <img src="Multimedia/корпус нобеля.jpg" alt="Корпус Університету Альфреда Нобеля">
+    </div>
+
+    <div class="section">
+        <h2>Міжнародна співпраця та програми обміну</h2>
+        <p>Університет активно розвиває міжнародні зв’язки і пропонує програми подвійного дипломування з університетами Польщі, Франції та Великої Британії. Студенти можуть брати участь у програмах <span class="highlight">Erasmus+</span>, а також у спеціальних навчальних програмах за кордоном, таких як <span class="highlight">Global Leadership</span>.</p>
+        
+    </div>
+
+    <div class="section">
+        <h2>Особливості університету</h2>
+        <p>Університет забезпечує навчання англійською мовою, підтримує підприємницькі ініціативи, стартапи та надає студентам можливість проходити стажування в міжнародних компаніях. Університет також має <span class="highlight">Центр кар'єри</span>, що допомагає студентам у пошуку роботи та проходженні стажувань.</p>
+        
+    </div>
+
+    <div class="section">
+        <h2>Наукові дослідження та досягнення</h2>
+        <p>Університет активно веде дослідження у таких сферах:</p>
+        <ul>
+            <li><span class="highlight">Економіка та управління бізнесом:</span> розвиток інноваційних стратегій для підприємств.</li>
+            <li><span class="highlight">Інформаційні технології:</span> дослідження в кібербезпеці та штучному інтелекті.</li>
+            <li><span class="highlight">Соціологія та міжнародні відносини:</span> вивчення глобальних тенденцій.</li>
+            <li><span class="highlight">Готельно-ресторанний бізнес:</span> новітні підходи до управління гостинністю.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Студентське життя та інфраструктура</h2>
+        <p>Університет має сучасний кампус на набережній Дніпра з навчальними корпусами, конференц-залами, спортивними секціями та культурними гуртками. <span class="highlight">Кар'єрний центр</span> підтримує студентів у професійному розвитку та організовує ярмарки вакансій, де студенти мають можливість зустрітися з представниками провідних компаній.</p>
+    </div>
+</div>
+
+</body>
+</html>
