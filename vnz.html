@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vnz.css">
+    <title>University Filter</title>
+    
+</head>
+
+<header class="head1">
+        
+        
+            
+
+
+
+<body>
+    <div class="zagolovok_body">
+
+            
+        <a href="index.html" class="obnov">
+            <img src="Multimedia/Gerb.jpg" alt="" class="zagimg1">
+        <h2 class="zagmin">ВНЗ ДНІПРА</h2>
+        </a>
+    
+        <div class="head_lev">
+            <div class="header__menu menu">
+                <div class="menu__burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="menu__body">
+                    
+                    <ul class="menu__list">
+                        <li class="menu__item"><a class="menu__link" href="index.html">Головна</a></li>
+                        <li class="menu__item"><a class="menu__link" href="history.html">Історія</a></li>
+                        <li class="menu__item"><a class="menu__link" href="vnz.html">ВНЗ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+
+
+</header>
+
+    <div class="filter-container">
+        <label for="specialty-filter">Виберіть спеціальність:</label>
+        <select id="specialty-filter">
+            <option value="all">Всі спеціальності</option>
+            <option value="computer-science">Комп'ютерні науки</option>
+            <option value="engineering">Інженерія</option>
+            <option value="medicine">Медицина</option>
+            <option value="economics">Економіка</option>
+            <option value="customs-finance">Митна справа та фінанси</option>
+        </select>
+    </div>
+
+    <div class="university-list">
+        <a target="_blank" href="dnu.html" class="university" data-specialty="computer-science economics engineering">
+            <img src="Multimedia/dnu-208_m.png" alt="ДНУ">
+            <div class="university-info">
+                <h3>Дніпровський національний університет імені Олеся Гончара (ДНУ)</h3>
+                <p>м. Дніпро, просп. Гагаріна, 72</p>
+            </div>
+        </a>
+
+        <a target="_blank" href="politeh.html" class="university" data-specialty="engineering computer-science">
+            <img src="Multimedia/Nacionalnij_TU_Dniprovska_politehnika-120_m.png" alt="Дніпровська політехніка">
+            <div class="university-info">
+                <h3>Національний технічний університет "Дніпровська політехніка"</h3>
+                <p>м. Дніпро, просп. Дмитра Яворницького, 19</p>
+            </div>
+        </a>
+
+        <a target="_blank" href="nobelia.html" class="university" data-specialty="economics">
+            <img src="Multimedia/UNIVERSITET_IMENI_ALFREDA_NOBELYa-212_m.png" alt="Університет Альфреда Нобеля">
+            <div class="university-info">
+                <h3>Університет імені Альфреда Нобеля</h3>
+                <p>м. Дніпро, вул. Січеславська Набережна, 18</p>
+            </div>
+        </a>
+
+        <a target="_blank" href="meduchnuy.html" class="university" data-specialty="medicine">
+            <img src="Multimedia/ddmu1-202_m.png" alt="ДДМУ">
+            <div class="university-info">
+                <h3>Дніпровський державний медичний університет (ДДМУ)</h3>
+                <p>м. Дніпро, вул. Володимира Вернадського, 9</p>
+            </div>
+        </a>
+
+        <a target="_blank" href="tomogka.html" class="university" data-specialty="customs-finance">
+            <img src="Multimedia/Митспарви.jpg" alt="Університет митної справи та фінансів">
+            <div class="university-info">
+                <h3>Університет митної справи та фінансів</h3>
+                <p>м. Дніпро, вул. Володимира Вернадського, 2/4</p>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        const filter = document.getElementById('specialty-filter');
+        const universities = document.querySelectorAll('.university');
+
+        filter.addEventListener('change', () => {
+            const selectedSpecialty = filter.value;
+
+            universities.forEach(university => {
+                const specialties = university.dataset.specialty.split(' ');
+                if (selectedSpecialty === 'all' || specialties.includes(selectedSpecialty)) {
+                    university.style.display = 'flex';
+                } else {
+                    university.style.display = 'none';
+                }
+            });
+        });
+
+       
+const menu = document.querySelector('.menu__body');
+const menuBtn = document.querySelector('.menu__burger');
+
+const body = document.body;
+
+if (menu && menuBtn){
+    menuBtn.addEventListener('click',() => {
+        menu.classList.toggle('active')
+        menuBtn.classList.toggle('active')
+        body.classList.toggle('lock')
+    })
+}
+    </script>
+</body>
+</html>
